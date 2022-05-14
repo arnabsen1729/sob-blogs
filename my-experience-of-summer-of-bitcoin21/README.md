@@ -1,5 +1,7 @@
 # My experience of Summer Of Bitcoin'21
 
+![cover](img/cover.webp)
+
 On June 26, I received an email saying that I was one of the 50 students selected for the **Summer of Bitcoin 2021** program. I was really happy and felt proud of myself because to be very honest I didn't have high hopes at that point. In this blog, I will cover the selection process, my experience at Summer of Bitcoin will also share some tips for those who are interested in this program.
 
 ## About Summer of Bitcoin
