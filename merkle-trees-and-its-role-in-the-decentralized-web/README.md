@@ -1,6 +1,6 @@
 # Merkle Trees and its role in the decentralized web
 
-![cover](img/cover.webp)
+![cover](https://raw.githubusercontent.com/arnabsen1729/sob-blogs/master/merkle-trees-and-its-role-in-the-decentralized-web/img/cover.webp)
 
 ## Centralised Web
 
@@ -10,7 +10,7 @@ Usually, we have a server where we upload files, and then we can access those fi
 
 *For example*, if you want to host your videos for people to watch, you would rather choose Youtube or Google Drive or similar hosting/file-sharing services. Now, this is very convenient because a user doesn't have to maintain those services or manage them. But it comes at a cost. *The data is now concentrated on the infrastructure of a handful of providers.*
 
-![centralized.png](img/centralized.webp)
+![centralized.png](https://raw.githubusercontent.com/arnabsen1729/sob-blogs/master/merkle-trees-and-its-role-in-the-decentralized-web/img/centralized.webp)
 
 ## Content Addressing
 
@@ -22,7 +22,7 @@ sha256sum file # will generate the SHA-256 hash of the file.
 
 Now even if you make a very small change, the sha256 value of the file will change drastically.
 
-![terminal.png](img/terminal.webp)
+![terminal.png](https://raw.githubusercontent.com/arnabsen1729/sob-blogs/master/merkle-trees-and-its-role-in-the-decentralized-web/img/terminal.webp)
 
 Now the output of this function (usually known as *hash* or *digest*) is of a fixed length. In the case of `SHA-256`, it's `32 bytes`. Also for each unique data, we will get a unique hash value. Thereby we can use the hash value for integrity check. As an analogy, if Alice and Bob are two different persons then quite naturally they will have different home addresses (not considering the exceptional cases, where Alice and Bob are roommates). So the home address in a way plays the role of identification for Alice and Bob. Similarly, the hash value plays the role of an address of the content (or data).
 
@@ -32,7 +32,7 @@ Now the output of this function (usually known as *hash* or *digest*) is of a fi
 
 Coming back to the peer-to-peer network. Instead of keeping the data in one server, we can share the data across multiple nodes (computers connected to the network are called **nodes**).
 
-![p2p.png](img/p2p.webp)
+![p2p.png](https://raw.githubusercontent.com/arnabsen1729/sob-blogs/master/merkle-trees-and-its-role-in-the-decentralized-web/img/p2p.webp)
 
 Now what are the pros:
 
@@ -52,7 +52,7 @@ The leaf nodes store the hashes of the chunks of the data. And their parent node
 So, if we have 4 chunks of data. We first hash each one of them and get `Hash 1`, `Hash 2`, `Hash 3`, `Hash 4`.
 Now we concatenate `Hash 1` and `Hash 2` and then calculate the hash of that concatenated string. That is stored in `B1` (Branch 1), similarly for `Hash 3` and `Hash 4`. We will keep doing this until we come to a single node in the tree which is called the root.
 
-![tree1.png](img/tree1.webp)
+![tree1.png](https://raw.githubusercontent.com/arnabsen1729/sob-blogs/master/merkle-trees-and-its-role-in-the-decentralized-web/img/tree1.webp)
 
 The root node has a special name in a Merkle Tree, we call it the **Root Hash**. And actually plays a big role in p2p networks.
 
@@ -60,7 +60,7 @@ The root node has a special name in a Merkle Tree, we call it the **Root Hash**.
 
 Checking for equality becomes easy with Merkle Tree. *Why?* Let's say one of the leaves has different data (unintended/tampered data). Now the hash for the corresponding leaf will be different. As a result, the parent hash will also be different and so on till the root. So if any data is tampered with, the root hash will give us different values.
 
-![tree2.png](img/tree2.webp)
+![tree2.png](https://raw.githubusercontent.com/arnabsen1729/sob-blogs/master/merkle-trees-and-its-role-in-the-decentralized-web/img/tree2.webp)
 
 So a change in any leaf node will be bubbled to the root hash. Now that reduces the comparisons we need to make to check the equality. And all we need to send to verify the data is the root hash, which is just 256 bits (or 32 bytes).
 
@@ -74,7 +74,7 @@ But why shall we go all the way to make a Merkle Tree and not just concatenate a
 
 Let's say we have 4 chunks of data. Before uploading to the p2p network I create a Merkle tree and find the root hash.
 
-![partial.png](img/partial.webp)
+![partial.png](https://raw.githubusercontent.com/arnabsen1729/sob-blogs/master/merkle-trees-and-its-role-in-the-decentralized-web/img/partial.webp)
 
 Now we have saved the root hash safely. Now let's say we need Data 4. And one node says that it has the data. But how do we ensure that the data is not malicious?
 First, we will get Data 4, so we can just hash it and get Hash 4. Then we will need Hash 3 (remember not Data 3, just the hash). Using Hash 4 and Hash 3 we can calculate hash B2. Then we will need B1 and using B2 and B1 we can calculate root hash, which we already have. So we can easily compare them. So what information did we need?
@@ -83,7 +83,7 @@ First, we will get Data 4, so we can just hash it and get Hash 4. Then we will n
 2. Hash 3
 3. B2
 
-![partial2.png](img/partial2.webp)
+![partial2.png](https://raw.githubusercontent.com/arnabsen1729/sob-blogs/master/merkle-trees-and-its-role-in-the-decentralized-web/img/partial2.webp)
 
 That's it. For a bigger tree, we will just need one data and a couple of hashes. The hashes have a fixed size of 32 bytes, so it will save a lot of bandwidth. Also, the number of hashes will be logarithmic to the number of leaves i.e chunks of data. *This way Merkle Trees can ease the verification process.*
 
