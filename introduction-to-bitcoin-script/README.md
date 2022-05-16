@@ -1,10 +1,10 @@
 # Introduction to Bitcoin Script
 
-![cover](img/cover.webp)
+![cover](https://raw.githubusercontent.com/arnabsen1729/sob-blogs/master/introduction-to-bitcoin-script/img/cover.webp)
 
 We know the bitcoin ledger is nothing but a **Blockchain**. And a single entity of the blockchain is called **Block**.  A block is a container data structure that aggregates transactions for inclusion in the public ledger, the blockchain.
 
-![mempool-space.png](img/mempool.webp)
+![mempool-space.png](https://raw.githubusercontent.com/arnabsen1729/sob-blogs/master/introduction-to-bitcoin-script/img/mempool.webp)
 _Fig: The blocks in the Blockchain and one block waiting to be mined. Image Source:_ [https://mempool.space/](https://mempool.space/)
 
 The structure of a block
@@ -18,12 +18,12 @@ The structure of a block
 
 So each block has some transactions.
 
-![transactions.png](img/transactions.webp)
+![transactions.png](https://raw.githubusercontent.com/arnabsen1729/sob-blogs/master/introduction-to-bitcoin-script/img/transactions.webp)
 _Fig: An example of transactions in a block (in this case, block at height 695701). Image Source:_ [https://www.blockchain.com/](https://www.blockchain.com/)
 
 Let's zoom deep into a single transaction.
 
-![single-txn.png](img/single-txn.webp)
+![single-txn.png](https://raw.githubusercontent.com/arnabsen1729/sob-blogs/master/introduction-to-bitcoin-script/img/single-txn.webp)
 _Fig: A single bitcoin transaction. Image Source:_  [https://mempool.space/](https://mempool.space/)
 
 There are some mysterious scripts mentioned in every transaction. I have highlighted the scripts in the above image. In this blog, we will discuss what these scripts are.
@@ -86,15 +86,15 @@ Executing Script involves two stack operations `PUSH` and `POP`. Stack is a data
 10 20 OP_ADD
 ```
 
-![add-1.png](img/add-1.webp)
+![add-1.png](https://raw.githubusercontent.com/arnabsen1729/sob-blogs/master/introduction-to-bitcoin-script/img/add-1.webp)
 
-![add-2.png](img/add-2.webp)
+![add-2.png](https://raw.githubusercontent.com/arnabsen1729/sob-blogs/master/introduction-to-bitcoin-script/img/add-2.webp)
 
 In the bitcoin script, there are some reserved keywords and they are meant to perform special operations. These are called **Opcodes**. The opcodes are assigned a unique hex value like `OP_ADD` is `0x93`. Each opcode has its own function. Like `OP_ADD` pops two values from the stack, performs arithmetic addition, and then pushes the final result into the stack.
 
-![add-3.png](img/add-3.webp)
+![add-3.png](https://raw.githubusercontent.com/arnabsen1729/sob-blogs/master/introduction-to-bitcoin-script/img/add-3.webp)
 
-![add-4.png](img/add-4.webp)
+![add-4.png](https://raw.githubusercontent.com/arnabsen1729/sob-blogs/master/introduction-to-bitcoin-script/img/add-4.webp)
 
 This is how the Bitcoin engine executes Script.
 
