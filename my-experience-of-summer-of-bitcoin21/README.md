@@ -1,6 +1,6 @@
 # My experience of Summer Of Bitcoin'21
 
-![cover](img/cover.webp)
+![cover](https://raw.githubusercontent.com/arnabsen1729/sob-blogs/master/my-experience-of-summer-of-bitcoin21/img/cover.webp)
 
 On June 26, I received an email saying that I was one of the 50 students selected for the **Summer of Bitcoin 2021** program. I was really happy and felt proud of myself because to be very honest I didn't have high hopes at that point. In this blog, I will cover the selection process, my experience at Summer of Bitcoin will also share some tips for those who are interested in this program.
 
@@ -10,7 +10,7 @@ A global program that matches students with open source, free software, and tech
 
 To know more visit the Summer Of Bitcoin [website](https://www.summerofbitcoin.org/).
 
-![logo.png](./img/logo.webp)
+![logo.png](https://raw.githubusercontent.com/arnabsen1729/sob-blogs/master/my-experience-of-summer-of-bitcoin21/img/logo.webp)
 
 ## Selection Process
 
@@ -34,7 +34,7 @@ Then the next day I received a follow-up question in the email where I had to ex
 
 And a few days later I received this mail:
 
-![next-round.png](./img/next-round.webp)
+![next-round.png](https://raw.githubusercontent.com/arnabsen1729/sob-blogs/master/my-experience-of-summer-of-bitcoin21/img/next-round.webp)
 
 Yayy !! My solution was in the top 1% among thousands of applicants. At this point, I was pretty confident.
 
@@ -102,9 +102,9 @@ After you have a good understanding of the fundamentals you can also dive into <
 
 Prior to this Summer Of Bitcoin, I had very little experience with cryptocurrency, blockchain, and also opensource. It was not just a bitcoin learning experience but we had career building, resume, and interview prep sessions too. I also kept a talk on Bitcoin Script. To make things even more amazing we also got some swags !! T-shirt and a Hardware Crypto Wallet.
 
-![ledger.jpeg](./img/ledger.webp)
+![ledger.jpeg](https://raw.githubusercontent.com/arnabsen1729/sob-blogs/master/my-experience-of-summer-of-bitcoin21/img/ledger.webp)
 
-![tee.jpeg](./img/tee.webp)
+![tee.jpeg](https://raw.githubusercontent.com/arnabsen1729/sob-blogs/master/my-experience-of-summer-of-bitcoin21/img/tee.webp)
 
 But the most important takeaway would be the new connections I made, I made a lot of new friends who are really amazing at what they do, I am still working with mentor 0xB10C and I will be joining back this summer as a student coach for the next cohort.
 
@@ -121,6 +121,6 @@ For those who are looking forward to applying for the next cohort of Summer of B
 - [Github](https://github.com/arnabsen1729)
 - [Gmail](arnabsen1729@gmail.com)
 
-![testimonial.png](./img/testimonial.webp)
+![testimonial.png](https://raw.githubusercontent.com/arnabsen1729/sob-blogs/master/my-experience-of-summer-of-bitcoin21/img/testimonial.webp)
 
 *(Source: <https://www.summerofbitcoin.org/>)*
