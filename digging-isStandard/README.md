@@ -1,6 +1,6 @@
 # Digging IsStandard in Bitcoin Core
 
-![cover](img/cover.png)
+![cover](https://raw.githubusercontent.com/arnabsen1729/sob-blogs/master/digging-isStandard/img/cover.png)
 
 Here, we will focus more on the Bitcoin Core implementation of the different types of scripts / transactions methods.  Here is the repo.
 
@@ -9,7 +9,7 @@ Here, we will focus more on the Bitcoin Core implementation of the different typ
 ## Standard Types
 
 There is an enum class called `TxoutType` that lists all the possible types of TxOut i.e Output Transaction.
-![tx-out](img/txoutype.png)
+![tx-out](https://raw.githubusercontent.com/arnabsen1729/sob-blogs/master/digging-isStandard/img/txoutype.png)
 
 [src/script/standard.h#L59-L71](https://github.com/bitcoin/bitcoin/blob/71797beec54d36a055d5e172ecbf2141fa984428/src/script/standard.h#L59-L71)
 
@@ -19,7 +19,7 @@ An enumeration is a user-defined type that consists of a set of named integral c
 
 Before diving into these, let's look at the function that determines if a Script is standard.
 
-![isStandard](img/isstandard.png)
+![isStandard](https://raw.githubusercontent.com/arnabsen1729/sob-blogs/master/digging-isStandard/img/isstandard.png)
 
 [src/policy/policy.cpp#L53-L74](https://github.com/bitcoin/bitcoin/blob/71797beec54d36a055d5e172ecbf2141fa984428/src/policy/policy.cpp#L53-L74)
 
@@ -36,7 +36,7 @@ whichType = Solver(scriptPubKey, vSolutions);
 
 Let's look into the `Solver` function. It's a huge function, but we will look at it section by section. Here is a glance at the entire function:
 
-![solver](img/solver.png)
+![solver](https://raw.githubusercontent.com/arnabsen1729/sob-blogs/master/digging-isStandard/img/solver.png)
 
 [src/script/standard.cpp#L144-L211](https://github.com/bitcoin/bitcoin/blob/71797beec54d36a055d5e172ecbf2141fa984428/src/script/standard.cpp#L144-L211)
 
@@ -65,10 +65,11 @@ Now, when Bob will have to spend the coins he received from Alice he should incl
 
 Here is how the `Solver` determines if a transaction is of P2PKH type:
 
-![MatchP2PKH.png](img/MatchP2PKH.png)
+![MatchP2PKH.png](https://raw.githubusercontent.com/arnabsen1729/sob-blogs/master/digging-isStandard/img/MatchP2PKH.png)
+
 It calls a helper function of `MatchPaytoPubkeyHash`.
 
-![MatchP2PKH](img/MatchP2PKH-1.png)
+![MatchP2PKH](https://raw.githubusercontent.com/arnabsen1729/sob-blogs/master/digging-isStandard/img/MatchP2PKH-1.png)
 
 [src/script/standard.cpp#L79-L86](https://github.com/bitcoin/bitcoin/blob/71797beec54d36a055d5e172ecbf2141fa984428/src/script/standard.cpp#L79-L86)
 
@@ -84,8 +85,8 @@ In the `MatchPayToPubkeyHash` it first checks if the size matches, and then chec
 
 If these conditions are satisfied then it returns true else false.
 
-![Tx_Script_P2PubKeyHash_1](img/Tx_Script_P2PubKeyHash_1.png)
-![Tx_Script_P2PubKeyHash_2](img/Tx_Script_P2PubKeyHash_2.png)
+![Tx_Script_P2PubKeyHash_1](https://raw.githubusercontent.com/arnabsen1729/sob-blogs/master/digging-isStandard/img/Tx_Script_P2PubKeyHash_1.png)
+![Tx_Script_P2PubKeyHash_2](https://raw.githubusercontent.com/arnabsen1729/sob-blogs/master/digging-isStandard/img/Tx_Script_P2PubKeyHash_2.png)
 
 _Fig: How P2PKH script is executed by the bitcoin engine_
 
@@ -111,12 +112,12 @@ Corresponding Unlocking Script for Bob will be:
 ```
 
 Here is the code snippet that does the check for `P2PK`:
-![p2pk](img/p2pk.png)
+![p2pk](https://raw.githubusercontent.com/arnabsen1729/sob-blogs/master/digging-isStandard/img/p2pk.png)
 
 If we look into the `MatchPayToPubKey` we will see a very similar check like that of P2PKH.
 There are two versions of PubKey one is the normal one and the other is the compressed version:
 
-![MatchPayToPubKey](img/MatchPayToPubKey.png)
+![MatchPayToPubKey](https://raw.githubusercontent.com/arnabsen1729/sob-blogs/master/digging-isStandard/img/MatchPayToPubKey.png)
 
 [src/script/standard.cpp#L66-L77](https://github.com/bitcoin/bitcoin/blob/71797beec54d36a055d5e172ecbf2141fa984428/src/script/standard.cpp#L66-L77)
 
@@ -148,11 +149,11 @@ OP_0 <Signature B> <Signature C> ...
 > **P.S** The prefix `OP_0` is required because of a bug in the original implementation of `CHECKMULTISIG` where one item too many is popped off the stack. It is ignored by `CHECKMULTISIG` and is simply a placeholder.
 
 The `Solver` function further calls `MatchMultisig`. It also passes two variables, one is `required` which stores the minimum number of signatures needed, basically the `m` value. The other is `keys` which store the n public keys, which will then be pushed to `vSolutions`.
-![multisig](img/multisig.png)
+![multisig](https://raw.githubusercontent.com/arnabsen1729/sob-blogs/master/digging-isStandard/img/multisig.png)
 
 Let's dive into the  `MatchMultisig`. It is a bit complicated because it doesn't have any fixed size.  But one thing is for sure it must have the `OP_CHECKMULTISIG` at the end. And we can see that part is considered.
 
-![MatchMultisig](img/MatchMultisig.png)
+![MatchMultisig](https://raw.githubusercontent.com/arnabsen1729/sob-blogs/master/digging-isStandard/img/MatchMultisig.png)
 
 [src/script/standard.cpp#L124-L142](https://github.com/bitcoin/bitcoin/blob/71797beec54d36a055d5e172ecbf2141fa984428/src/script/standard.cpp#L124-L142)
 
@@ -196,7 +197,7 @@ Sig1 Sig2 <redeem script>
 
 One more advantage of using P2SH is that now Alice has no idea that Bob is using a Multisig. Here is how in the Solver function P2SH scripts are checked.
 
-![p2sh](img/p2sh.png)
+![p2sh](https://raw.githubusercontent.com/arnabsen1729/sob-blogs/master/digging-isStandard/img/p2sh.png)
 
 It calls a method `IsPayToScriptHash`. Now before looking at the method directly let's try to guess it's implementation.
 
@@ -209,7 +210,7 @@ OP_HASH160 20 <20-byte hash> OP_EQUAL
 There are two opcodes so 2 bytes. 1 byte for the size i.e 20. And 20 bytes for the hash. In total it makes 23 bytes.
 Also, it should have`OP_HASH160` at the start and `OP_EQUAL` at the end. Let's look at the actual implementation:
 
-![isp2sh]](img/isp2sh.png)
+![isp2sh](https://raw.githubusercontent.com/arnabsen1729/sob-blogs/master/digging-isStandard/img/isp2sh.png)
 
 Yup, that's exactly what we expected. Checks the size is 23, if the first opcode is `OP_HASH160` and then it states the size of the key which is 20 (0x14 is hex for 20) and then finally at the end we have `OP_EQUAL`.
 
@@ -219,7 +220,7 @@ Let's head back to the `isStandard` function.
 
 ## IsStandard
 
-![isstandard](img/isstandard-1.png)
+![isstandard](https://raw.githubusercontent.com/arnabsen1729/sob-blogs/master/digging-isStandard/img/isstandard-1.png)
 
 At this point, the `Solver` function has returned the type of the script. If by any chance the solver function wasn't able to decide on the standard, it returns `NONSTANDARD`.
 
